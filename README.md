@@ -18,10 +18,10 @@ Once the application is running, navigate to http://localhost:8080/ in your web 
 
 ## Assignment
 ### Lab 16
--[ ] Build an app users can log into.
--[ ] The site should have a log in page
--[ ] The login page should have a link to a sign up page
--[ ] An ApplicationUser should have a:
+- [ ] Build an app users can log into.
+- [ ] The site should have a log in page
+- [ ] The login page should have a link to a sign up page
+- [ ] An ApplicationUser should have a:
   - [ ] username
   - [ ] password
     - [ ] will be hashed with bcrypt
