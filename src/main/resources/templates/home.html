@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>Welcome to CodeFellowship!</h1>
+    <div th:if="${#authorization.expression('isAuthenticated()')}">
+        <p>Welcome, <span th:text="${#authentication.name}"></span>!</p>
+        <a href="/logout" class="btn btn-primary">Logout</a>
+    </div>
+    <div th:unless="${#authorization.expression('isAuthenticated()')}">
+        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/signup" class="btn btn-secondary">Sign Up</a>
+    </div>
+</div>
+</body>
+</html>
