@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Home Page</title>
+    <title>CodeFellowship</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 </head>
 <body>
 <div class="container">
-    <h1>Welcome to CodeFellowship!</h1>
-    <div th:if="${#authorization.expression('isAuthenticated()')}">
-        <p>Welcome, <span th:text="${#authentication.name}"></span>!</p>
-        <a href="/logout" class="btn btn-primary">Logout</a>
-    </div>
-    <div th:unless="${#authorization.expression('isAuthenticated()')}">
-        <a href="/login" class="btn btn-primary">Login</a>
-        <a href="/signup" class="btn btn-secondary">Sign Up</a>
-    </div>
+    <header>
+        <h1>CodeFellowship</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+    </nav>
+    <section>
+        <h2>What is CodeFellowship?</h2>
+        <p>CodeFellowship is a community for programmers of all skill levels. We offer a variety of resources, including tutorials, articles, and a forum where you can ask questions and get help from other programmers.</p>
+    </section>
+    <section>
+        <h2>Features</h2>
+        <ul>
+            <li>Tutorials</li>
+            <li>Hundreds of articles</li>
+            <li>Active forum</li>
+        </ul>
+    </section>
+    <section>
+        <h2>Sign up today!</h2>
+        <a href="/signup" class="btn btn-primary">Sign up</a>
+    </section>
 </div>
 </body>
 </html>

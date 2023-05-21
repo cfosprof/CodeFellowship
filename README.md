@@ -15,6 +15,58 @@ $ ./gradlew bootRun
 Once the application is running, navigate to http://localhost:8080/ in your web browser to view the application.
 
 
+## Task list
+
+
+1. Setup the base application
+  - [ ] Set up a new Spring Boot application with the necessary dependencies (Web, Security, JPA, Thymeleaf).
+
+2. Build the user model and repository
+  - [ ] Create an `ApplicationUser` entity class with the necessary fields (username, password, firstName, lastName, dateOfBirth, bio).
+  - [ ] Implement a repository for the ApplicationUser entity `ApplicationUserRepository`
+
+3. Create a user service
+  - [ ] Create a `UserDetailsService` that loads user by username.
+  - [ ] Implement `UserDetails` in the `ApplicationUser` class.
+
+4. Configure Spring Security
+  - [ ] Create a `WebSecurityConfig` class that extends `WebSecurityConfigurerAdapter`.
+  - [ ] Configure `AuthenticationManagerBuilder` and `HttpSecurity`.
+  - [ ] Set up URL matchers for routes.
+  - [ ] Configure the login and logout process.
+
+5. Build user registration and authentication controllers
+  - [ ] Create a `UserController` that handles user registration and authentication.
+  - [ ] Implement a sign-up page handler.
+  - [ ] Implement a login page handler.
+  - [ ] Implement a logout handler.
+
+6. Implement Thymeleaf templates
+  - [ ] Create a template for the home page.
+  - [ ] Create a template for the login page.
+  - [ ] Create a template for the sign-up page.
+  - [ ] Include username in the header if the user is authenticated.
+
+7. Implement and apply CSS styling
+  - [ ] Create a CSS file and link it in the Thymeleaf templates.
+  - [ ] Apply styles to the templates.
+
+## Resources
+
+[Class 16 assignment](https://canvas.instructure.com/courses/6504881/assignments/36513372)
+
+[Class 17 assignment](https://canvas.instructure.com/courses/6504881/assignments/36513373)
+
+[Class 18 assignment](https://canvas.instructure.com/courses/6504881/assignments/36513374)
+
+
+[Class 16 Github Repo](https://github.com/codefellows/seattle-code-java401d17/tree/main/class-16)
+
+[Class 17 Github Repo](https://github.com/codefellows/seattle-code-java401d17/tree/main/class-17)
+
+[Class 18 Github Repo](https://github.com/codefellows/seattle-code-java401d17/tree/main/class-18)
+
+[CodeFellowship Github Repo](https://github.com/cfosprof/demo)
 
 ## Assignment
 ### Lab 16
