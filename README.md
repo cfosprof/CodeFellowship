@@ -19,37 +19,74 @@ Once the application is running, navigate to http://localhost:8080/ in your web 
 
 
 1. Setup the base application
-  - [ ] Set up a new Spring Boot application with the necessary dependencies (Web, Security, JPA, Thymeleaf).
+  - [x] Set up a new Spring Boot application with the necessary dependencies (Web, Security, JPA, Thymeleaf).
 
 2. Build the user model and repository
-  - [ ] Create an `ApplicationUser` entity class with the necessary fields (username, password, firstName, lastName, dateOfBirth, bio).
-  - [ ] Implement a repository for the ApplicationUser entity `ApplicationUserRepository`
+  - [x] Create an `ApplicationUser` entity class with the necessary fields (username, password, firstName, lastName, dateOfBirth, bio).
+  - [x] Implement a repository for the ApplicationUser entity `ApplicationUserRepository`
 
 3. Create a user service
-  - [ ] Create a `UserDetailsService` that loads user by username.
-  - [ ] Implement `UserDetails` in the `ApplicationUser` class.
+  - [x] Create a `UserDetailsService` that loads user by username.
+  - [x] Implement `UserDetails` in the `ApplicationUser` class.
 
 4. Configure Spring Security
-  - [ ] Create a `WebSecurityConfig` class that extends `WebSecurityConfigurerAdapter`.
-  - [ ] Configure `AuthenticationManagerBuilder` and `HttpSecurity`.
-  - [ ] Set up URL matchers for routes.
-  - [ ] Configure the login and logout process.
+  - [x] Create a `WebSecurityConfig` class that extends `WebSecurityConfigurerAdapter`.
+  - [x] Configure `AuthenticationManagerBuilder` and `HttpSecurity`.
+  - [x] Set up URL matchers for routes.
+  - [x] Configure the login and logout process.
 
 5. Build user registration and authentication controllers
-  - [ ] Create a `UserController` that handles user registration and authentication.
-  - [ ] Implement a sign-up page handler.
-  - [ ] Implement a login page handler.
-  - [ ] Implement a logout handler.
+  - [x] Create a `UserController` that handles user registration and authentication.
+  - [x] Implement a sign-up page handler.
+  - [x] Implement a login page handler.
+  - [x] Implement a logout handler.
 
 6. Implement Thymeleaf templates
-  - [ ] Create a template for the home page.
-  - [ ] Create a template for the login page.
-  - [ ] Create a template for the sign-up page.
-  - [ ] Include username in the header if the user is authenticated.
+  - [x] Create a template for the home page.
+  - [x] Create a template for the login page.
+  - [x] Create a template for the sign-up page.
+  - [x] Include username in the header if the user is authenticated.
 
 7. Implement and apply CSS styling
-  - [ ] Create a CSS file and link it in the Thymeleaf templates.
-  - [ ] Apply styles to the templates.
+  - [x] Create a CSS file and link it in the Thymeleaf templates.
+  - [x] Apply styles to the templates.
+
+### Lab 17
+
+1. Enhance user login process
+- [ ] Implement redirection to /myprofile route upon user login.
+- [ ] Display user's basic information on /myprofile, including a default profile picture.
+
+2. Build a user detail page
+- [ ] Develop a user detail page at route /users/{id}.
+- [ ] Display user's basic information on this page, including a default profile picture.
+
+3. Implement and update routing rules
+- [ ] Continue to ensure that the homepage, login, and registration routes are accessible to non-logged in users.
+- [ ] Restrict all other routes to logged-in users.
+
+4. Build the post model
+- [ ] Create a `Post` entity class with necessary fields (body, createdAt).
+- [ ] Implement a repository for the Post entity `PostRepository`
+
+5. Enhance user's ability to interact with posts
+- [ ] Implement feature allowing logged-in users to create a Post.
+- [ ] Implement relationship between Post and ApplicationUser (a post belongs to the user that created it).
+- [ ] Display a user's posts on their profile page.
+- [ ] Allow logged-in users to edit or delete their own posts.
+- [ ] Implement a post “detail” page, displaying the post’s body and information about its author.
+
+6. Implement reusable templates
+- [ ] Use at least one Thymeleaf fragment on multiple pages.
+
+7. Improve error handling
+- [ ] Implement a non-whitelabel error handling page displaying the error code and a brief message about what went wrong.
+
+8. Implement integration testing
+- [ ] Write integration tests for new and existing functionality.
+
+Note: Each of these tasks should be broken down into smaller sub-tasks to manage the complexity of each task. For example, "Implement feature allowing logged-in users to create a Post." could involve several sub-tasks such as designing the database schema, implementing the backend functionality, designing the front-end interface, etc.
+
 
 ## Resources
 
