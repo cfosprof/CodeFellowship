@@ -3,11 +3,12 @@
 <head>
     <title>Login Page</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <body>
 <div class="container">
     <h2>Login</h2>
-    <form th:action="@{/perform_login}" method="post" class="form-group">
+    <form th:action="@{/login}" method="post" class="form-group">
         <label for="username">Username:</label>
         <input type="text" id="username" name="username" required class="form-control"/>
         <br/>
@@ -15,14 +16,9 @@
         <input type="password" id="password" name="password" required class="form-control"/>
         <br/>
         <input type="submit" value="Login" class="btn btn-primary"/>
-        <span th:if="${#errors.hasErrors()}">
-            <ul>
-                <li th:each="error : ${#errors.all()}">
-                    {{ error }}
-                </li>
-            </ul>
-        </span>
     </form>
+
     <p>Don't have an account? <a th:href="@{/signup}">Sign up here</a></p>
 </div>
-</body
+</body>
+</html>

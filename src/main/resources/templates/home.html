@@ -3,32 +3,45 @@
 <head>
     <title>CodeFellowship</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <body>
 <div class="container">
     <header>
         <h1>CodeFellowship</h1>
     </header>
+    <div th:if="${#authorization.expression('isAuthenticated()')}">
+        Logged in as: <span th:text="${#authentication.principal.username}"></span>
+    </div>
     <nav>
         <ul>
             <li><a href="/">Home</a></li>
-            <li><a href="#">About</a></li>
+            <li><a href="/">About</a></li>
+            <li th:if="${#authorization.expression('!isAuthenticated()')}">
+                <a href="/signup">Sign up</a>
+            </li>
+            <li th:if="${#authorization.expression('!isAuthenticated()')}">
+                <a href="/login">Login</a>
+            </li>
+            <li th:if="${#authorization.expression('isAuthenticated()')}">
+                <a href="/logout">Logout</a>
+            </li>
         </ul>
     </nav>
-    <section>
-        <h2>What is CodeFellowship?</h2>
+    <section class="section-body">
+        <h2 class="section-title">What is CodeFellowship?</h2>
         <p>CodeFellowship is a community for programmers of all skill levels. We offer a variety of resources, including tutorials, articles, and a forum where you can ask questions and get help from other programmers.</p>
     </section>
-    <section>
-        <h2>Features</h2>
+    <section class="section-body">
+        <h2 class="section-title">Features</h2>
         <ul>
             <li>Tutorials</li>
             <li>Hundreds of articles</li>
             <li>Active forum</li>
         </ul>
     </section>
-    <section>
-        <h2>Sign up today!</h2>
+    <section class="section-body">
+        <h2 class="section-title">Sign up today!</h2>
         <a href="/signup" class="btn btn-primary">Sign up</a>
     </section>
 </div>
