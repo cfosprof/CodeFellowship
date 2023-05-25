@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>User Profile</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">CodeFellowship</a>
+</nav>
+<body>
+<div class="container">
+    <h2>User Profile</h2>
+    <img th:src="@{/img/default_profile_picture.jpg}" alt="Profile picture">
+    <p><strong>Username: </strong><span th:text="${user.username}"></span></p>
+
+    <h3>User's Posts</h3>
+    <div th:each="post : ${posts}">
+        <h4 th:text="${post.title}"></h4>
+        <p th:text="${post.body}"></p>
+        <a th:href="@{/post/{id}(id=${post.id})}" class="btn btn-primary">View Post</a>
+    </div>
+</div>
+</body>
+</html>

@@ -11,16 +11,21 @@ public class ApplicationUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
 
-    public UserRepository getUserRepository() {
-        return userRepository;
-    }
-
     public ApplicationUserDetailsService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
+    public UserRepository getUserRepository() {
+        return userRepository;
+    }
+
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userRepository.findByUsername(username);
+        UserDetails userDetails = userRepository.findByUsername(username);
+        if (userDetails != null) {
+            return userDetails;
+        } else {
+            throw new UsernameNotFoundException("ApplicationUser not found with username: " + username);
+        }
     }
 }

@@ -45,19 +45,22 @@ public class WebSecurityConfig {
         http
                 .cors().disable()
                 .csrf().disable()
-                .authorizeHttpRequests((auth) -> auth
+                .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/").permitAll()
                         .requestMatchers("/signup").permitAll()
                         .requestMatchers("/login").permitAll()
                         .requestMatchers("/css/**").permitAll()
+                        .requestMatchers("/users/**").authenticated()
+                        .requestMatchers("/myprofile").authenticated()
                         .anyRequest().authenticated()
                 )
                 .formLogin()
                 .loginPage("/login").permitAll()
-                .defaultSuccessUrl("/", true)
+                .defaultSuccessUrl("/myprofile", true)
+
                 .and()
                 .logout()
-                .logoutSuccessUrl("/Login?logout")
+                .logoutSuccessUrl("/login?logout")
                 .permitAll()
                 .and()
                 .getSharedObject(AuthenticationManagerBuilder.class)
@@ -66,4 +69,32 @@ public class WebSecurityConfig {
 
         return http.build();
     }
+
+
+//    @Bean
+//    protected SecurityFilterChain filterChain(final HttpSecurity http) throws Exception {
+//        http
+//                .cors().disable()
+//                .csrf().disable()
+//                .authorizeHttpRequests((auth) -> auth
+//                        .requestMatchers("/").permitAll()
+//                        .requestMatchers("/signup").permitAll()
+//                        .requestMatchers("/login").permitAll()
+//                        .requestMatchers("/css/**").permitAll()
+//                        .anyRequest().authenticated()
+//                )
+//                .formLogin()
+//                .loginPage("/login").permitAll()
+//                .defaultSuccessUrl("/", true)
+//                .and()
+//                .logout()
+//                .logoutSuccessUrl("/Login?logout")
+//                .permitAll()
+//                .and()
+//                .getSharedObject(AuthenticationManagerBuilder.class)
+//                .userDetailsService(siteUserDetailsService)
+//                .passwordEncoder(passwordEncoder());
+//
+//        return http.build();
+//    }
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Edit Post</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">CodeFellowship</a>
+</nav>
+<body>
+<div class="container">
+    <h2>Edit Post</h2>
+    <form th:action="@{/post/{id}/edit(id=${post.id})}" method="post" class="form-group">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" th:value="${post.title}" required class="form-control"/>
+        <br/>
+        <label for="body">Body:</label>
+        <textarea id="body" name="body" required class="form-control" th:text="${post.body}"></textarea>
+        <br/>
+        <input type="submit" value="Update Post" class="btn btn-primary"/>
+    </form>
+</div>
+</body>
+</html>

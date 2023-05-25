@@ -8,8 +8,8 @@ import java.time.LocalDate;
 import java.util.Collection;
 import java.util.Collections;
 
-@Entity(name = "users") // users instead of user
-public class User implements UserDetails {
+@Entity(name = "users")
+public class ApplicationUser implements UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,6 +29,17 @@ public class User implements UserDetails {
         // Later: Return authorities depending on the role of the user
         // Example (new SimpleGrantedAuthority("ROLE_USER"));
         return Collections.emptyList();
+    }
+
+    public ApplicationUser() { }
+
+    public ApplicationUser(String username, String password, String firstName, String lastName, LocalDate dateOfBirth, String bio) {
+        this.username = username;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dateOfBirth = dateOfBirth;
+        this.bio = bio;
     }
 
     @Override
@@ -86,6 +97,10 @@ public class User implements UserDetails {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
     public String getBio() {
         return bio;
     }
@@ -93,6 +108,7 @@ public class User implements UserDetails {
     public void setBio(String bio) {
         this.bio = bio;
     }
+
 
     @Override
     public boolean isEnabled() {
@@ -108,7 +124,4 @@ public class User implements UserDetails {
         this.id = id;
     }
 
-    public LocalDate getDateOfBirth() {
-        return dateOfBirth;
-    }
 }

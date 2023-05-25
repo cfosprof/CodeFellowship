@@ -85,7 +85,78 @@ Once the application is running, navigate to http://localhost:8080/ in your web 
 8. Implement integration testing
 - [ ] Write integration tests for new and existing functionality.
 
-Note: Each of these tasks should be broken down into smaller sub-tasks to manage the complexity of each task. For example, "Implement feature allowing logged-in users to create a Post." could involve several sub-tasks such as designing the database schema, implementing the backend functionality, designing the front-end interface, etc.
+
+## Lab 18
+
+1. Enhance database models for new features
+
+  - [ ] Update `ApplicationUser` class to include a list of users they follow.
+
+  - [ ] Implement a self-join relationship in `ApplicationUser` to facilitate following mechanism.
+
+  - [ ] Update `Post` entity to include a reference to the `ApplicationUser` that wrote the post.
+
+
+2. Implement follow feature
+
+  - [ ] Add method in `ApplicationUserRepository` to update the followed users list.
+
+  - [ ] Create a `FollowService` that handles user following operations.
+
+  - [ ] Implement a controller handler for the follow button in `UserController`.
+
+
+3. Build a user feed feature
+
+  - [ ] Create a `FeedController` that handles user feed.
+
+  - [ ] Implement a `/feed` route handler that displays all the posts from the users that the current logged-in user follows.
+
+  - [ ] Update Thymeleaf templates to support feed feature.
+
+
+4. Enhance user profile page
+
+  - [ ] Update user profile page handler in `UserController` to include a "Follow" button for users that are not the currently logged-in user.
+
+  - [ ] Update Thymeleaf template for user profile to include the "Follow" button.
+
+
+5. Secure the application against SQL and HTML injection
+
+  - [ ] Sanitize user inputs in post creation and user follow feature.
+
+  - [ ] Implement server-side validation for user inputs.
+
+
+6. Implement a users index page
+
+  - [ ] Create a `UsersController` that handles the users index page.
+
+  - [ ] Implement a `/users` route handler that displays a list of all users.
+  - 
+  - [ ] Create a Thymeleaf template for the users index page.
+
+
+7. Implement post linking to user profiles
+
+  - [ ] Update Thymeleaf templates for posts to include a link to the user's profile.
+
+  - [ ] Implement route handler in `UserController` for navigating to a user's profile from a post.
+
+
+8. Continue integration testing
+
+  - [ ] Write integration tests for the new follow feature, user feed, and users index page.
+
+
+9. Optimize application performance
+
+  - [ ] Ensure all new features are optimized for performance, checking SQL queries for efficiency.
+
+  - [ ] Conduct stress testing to identify potential bottlenecks.
+
+
 
 
 ## Resources
@@ -152,3 +223,5 @@ Note: Each of these tasks should be broken down into smaller sub-tasks to manage
 - [ ] The site should have a non-whitelabel error handling page that lets the user know, at minimum, the error code and a brief message about what went wrong.
 - [ ] The site should contain integration testing.
 - [ ] A users posts should be visible on their profile page.
+
+

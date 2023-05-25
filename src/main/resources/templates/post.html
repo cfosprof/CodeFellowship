@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Post Detail</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
+</head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="/">CodeFellowship</a>
+</nav>
+<body>
+<div class="container">
+    <h2>Post Detail</h2>
+    <h3 th:text="${post.title}"></h3>
+    <p th:text="${post.body}"></p>
+    <p><strong>Author: </strong><span th:text="${post.author.username}"></span></p>
+</div>
+</body>
+</html>

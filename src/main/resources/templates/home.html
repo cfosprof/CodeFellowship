@@ -6,28 +6,37 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}" />
 </head>
 <body>
-<div class="container">
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="/">CodeFellowship</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/">About</a></li>
+                <li class="nav-item" th:if="${#authorization.expression('!isAuthenticated()')}">
+                    <a class="nav-link" href="/signup">Sign up</a>
+                </li>
+                <li class="nav-item" th:if="${#authorization.expression('!isAuthenticated()')}">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item" th:if="${#authorization.expression('isAuthenticated()')}">
+                    <a class="nav-link" href="/users">Users</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="container mt-5 pt-3">
     <header>
-        <h1>CodeFellowship</h1>
+        <h1>Welcome to CodeFellowship</h1>
+        <p class="lead">Learn, Share, Connect.</p>
     </header>
     <div th:if="${#authorization.expression('isAuthenticated()')}">
         Logged in as: <span th:text="${#authentication.principal.username}"></span>
     </div>
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/">About</a></li>
-            <li th:if="${#authorization.expression('!isAuthenticated()')}">
-                <a href="/signup">Sign up</a>
-            </li>
-            <li th:if="${#authorization.expression('!isAuthenticated()')}">
-                <a href="/login">Login</a>
-            </li>
-            <li th:if="${#authorization.expression('isAuthenticated()')}">
-                <a href="/logout">Logout</a>
-            </li>
-        </ul>
-    </nav>
     <section class="section-body">
         <h2 class="section-title">What is CodeFellowship?</h2>
         <p>CodeFellowship is a community for programmers of all skill levels. We offer a variety of resources, including tutorials, articles, and a forum where you can ask questions and get help from other programmers.</p>
@@ -42,7 +51,7 @@
     </section>
     <section class="section-body">
         <h2 class="section-title">Sign up today!</h2>
-        <a href="/signup" class="btn btn-primary">Sign up</a>
+        <a href="/signup" class="btn btn-success">Sign Up</a>
     </section>
 </div>
 </body>
