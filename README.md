@@ -1,5 +1,7 @@
 # CodeFellowship
 
+[assignment18](https://canvas.instructure.com/courses/6504881/assignments/36513374)
+[assignment19](https://canvas.instructure.com/courses/6504881/assignments/36513375)
 ## Description
 This is a social media app for developers to connect with each other. Users can create an account, create posts, and view other users posts.
 
@@ -13,6 +15,62 @@ Once downloaded, you can either use IntelliJ to run the application or you can u
 $ ./gradlew bootRun
 ```
 Once the application is running, navigate to http://localhost:8080/ in your web browser to view the application.
+
+CodeFellowship
+CodeFellowship is a community-based platform for programmers of all skill levels. It offers a variety of resources, including tutorials, articles, and a forum where users can ask questions and get help from other programmers.
+
+Setup
+Requirements:
+Java 8 or above
+PostgresSQL database
+Steps:
+Clone this repo to your local machine: git clone https://github.com/yourusername/CodeFellowship.git
+Navigate to the directory: cd CodeFellowship
+Open the project in your IDE
+Set up your PostgresSQL database and update the spring.datasource.url, spring.datasource.username, and spring.datasource.password fields in application.properties to match your local setup.
+Run the application by right-clicking on CodeFellowshipApplication.java in your IDE and selecting Run 'CodeFellowshipApplication'
+Features
+User Registration & Login: Users can create a new account and login to the application.
+User Profile: Users can view their profile which displays their personal details and posts.
+Create & Edit Posts: Users can create new posts and edit their existing posts.
+View Post Details: Users can view the details of a specific post.
+Application Properties
+The application.properties file contains configuration details for the application. Here are some of the main properties:
+
+spring.application.name=CodeFellowship: The name of the application.
+spring.datasource.url=jdbc:postgresql://localhost:5432/CodeFellowship: The URL of the PostgresSQL database.
+spring.datasource.username=//The username for the database.
+spring.datasource.password=//The password for the database.
+spring.jpa.hibernate.ddl-auto=update: The strategy for generating database schema.
+spring.security.user.name=// The default username for Spring Security.
+spring.security.user.password=// The default password for Spring Security.
+server.port=8080: The port number the application runs on.
+Views
+The application uses Thymeleaf as the template engine. All view files are located in the src/main/resources/templates directory.
+
+home.html: The homepage of the application.
+signup.html: The page where users can create a new account.
+login.html: The page where users can login to their account.
+newpost.html: The page where users can create a new post.
+editpost.html: The page where users can edit an existing post.
+myprofile.html: The page where users can view their profile and posts.
+user.html: The page where users can view the profile and posts of other users.
+Model
+ApplicationUser: Represents a user in the application. It includes fields for the username, password, first name, last name, date of birth, bio, and the user's posts.
+Post: Represents a post created by a user. It includes fields for the post title, body, creation date, and the author of the post.
+Controllers
+UserController: Handles requests related to users and posts. It includes methods for handling signup, login, viewing profiles, creating new posts, editing posts, and deleting posts.
+Repositories
+UserRepository: Repository for performing CRUD operations on users.
+PostRepository: Repository for performing CRUD operations on posts.
+Security
+The application uses Spring Security for authentication and authorization. The user's password is encrypted using BCrypt.
+
+Future Work
+Implement comments on posts.
+Implement likes on posts.
+Add user profile picture upload functionality.
+
 
 
 ## Task list
